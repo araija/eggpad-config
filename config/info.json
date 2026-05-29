@@ -1,0 +1,16 @@
+{
+  "keyboard_name": "EggPad",
+  "layouts": {
+    "LAYOUT": {
+      "layout": [
+        { "x": 0, "y": 0, "label": "D0" },
+        { "x": 1, "y": 0, "label": "D1" },
+        { "x": 2, "y": 0, "label": "D2" },
+        { "x": 0, "y": 1, "label": "D3" },
+        { "x": 1, "y": 1, "label": "D4" },
+        { "x": 2, "y": 1, "label": "D5" },
+        { "x": 1, "y": 2.5, "label": "D8 (Switch)" }
+      ]
+    }
+  }
+}
