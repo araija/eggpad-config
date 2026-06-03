@@ -1,4 +1,5 @@
-#include <dt-bindings/zmk/matrix_transform.h> // 🟢 これが解読に必要な辞書です！
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi> // 🟢 ZMK Studio用の座標データを扱うための辞書を追加
 
 / {
     chosen {
@@ -22,15 +23,7 @@
             ;
     };
 
-    // 骨組みの定義
-    default_layout: layout_0 {
-        compatible = "zmk,physical-layout";
-        display-name = "Default Layout";
-        kscan = &kscan0;
-        transform = &default_transform;
-    };
-
-    // ボタンの並び順の割り当てマップ
+    // ボタンの配線上の並び順マップ
     default_transform: matrix_transform {
         compatible = "zmk,matrix-transform";
         columns = <7>;
@@ -38,5 +31,24 @@
         map = <
             RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5) RC(0,6)
         >;
+    };
+
+    // 🟢 ZMK Studio用のレイアウト（骨組みと座標）
+    default_layout: layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Default Layout";
+        kscan = <&kscan0>;              // 修正: < > で囲みました
+        transform = <&default_transform>; // 修正: < > で囲みました
+        
+        // 🟢 ZMK Studioの画面にボタンを表示するための座標データ (幅, 高さ, X座標, Y座標, 回転など)
+        keys
+            = <&key_physical_attrs 100 100 0 0 0 0 0>       // D0: 左上
+            , <&key_physical_attrs 100 100 100 0 0 0 0>     // D1: 中上
+            , <&key_physical_attrs 100 100 200 0 0 0 0>     // D2: 右上
+            , <&key_physical_attrs 100 100 0 100 0 0 0>     // D3: 左下
+            , <&key_physical_attrs 100 100 100 100 0 0 0>   // D4: 中下
+            , <&key_physical_attrs 100 100 200 100 0 0 0>   // D5: 右下
+            , <&key_physical_attrs 100 100 100 250 0 0 0>   // D8: スイッチ(さらに下)
+            ;
     };
 };
