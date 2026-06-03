@@ -1,6 +1,8 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
+        // 🟢 最新ルール：マイコン側にも物理レイアウトの存在を教える
+        zmk,physical-layout = &default_layout;
     };
 
     // 🔌 ボタンとスイッチの物理ピン配置定義
@@ -17,5 +19,23 @@
             , <&xiao_d 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // ボタン6 (D5)
             , <&xiao_d 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // 🛑 省エネスイッチ (D8)
             ;
+    };
+
+    // 🟢 最新ルール：ZMK Studioが認識するためのレイアウトの骨組み
+    default_layout: layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Default Layout";
+        kscan = &kscan0;
+        transform = &default_transform;
+    };
+
+    // 🟢 ボタンの並び順の割り当てマップ（計7個）
+    default_transform: matrix_transform {
+        compatible = "zmk,matrix-transform";
+        columns = <7>;
+        rows = <1>;
+        map = <
+            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5) RC(0,6)
+        >;
     };
 };
