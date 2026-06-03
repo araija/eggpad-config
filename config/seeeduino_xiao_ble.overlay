@@ -33,14 +33,13 @@
         >;
     };
 
-    // 🟢 ZMK Studio用のレイアウト（骨組みと座標）
+// 🟢 ZMK Studio用のレイアウト
     default_layout: layout_0 {
         compatible = "zmk,physical-layout";
         display-name = "Default Layout";
-        kscan = <&kscan0>;              // 修正: < > で囲みました
-        transform = <&default_transform>; // 修正: < > で囲みました
+        kscan = <&kscan0>;
+        transform = <&default_transform>;
         
-        // 🟢 ZMK Studioの画面にボタンを表示するための座標データ (幅, 高さ, X座標, Y座標, 回転など)
         keys
             = <&key_physical_attrs 100 100 0 0 0 0 0>       // D0: 左上
             , <&key_physical_attrs 100 100 100 0 0 0 0>     // D1: 中上
@@ -48,7 +47,7 @@
             , <&key_physical_attrs 100 100 0 100 0 0 0>     // D3: 左下
             , <&key_physical_attrs 100 100 100 100 0 0 0>   // D4: 中下
             , <&key_physical_attrs 100 100 200 100 0 0 0>   // D5: 右下
-            , <&key_physical_attrs 100 100 100 250 0 0 0>   // D8: スイッチ(さらに下)
+            // 🛑 ここにあったD8の行を完全に削除！
             ;
     };
 };
