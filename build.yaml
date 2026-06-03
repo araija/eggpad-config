@@ -1,3 +1,6 @@
----
+# 既存のボード設定
 include:
   - board: seeeduino_xiao_ble
+  # 🧹 記憶を消去するための「お掃除用シールド」を追加生成！
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
